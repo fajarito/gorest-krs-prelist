@@ -143,7 +143,7 @@ func (r *repository) SearchByNik(nik string, filter2 int, filter3 string, filter
 	if filter4 == "V" || filter4 == "X" {
 		query = query.Where("risiko_stunting = ?", filter4)
 	} else if filter4 != "" {
-		return nil, errors.New("Invalid filter3 value. Must be 'V' or 'X'")
+		return nil, errors.New("Invalid filter4 value. Must be 'V' or 'X'")
 	}
 
 	err := query.Find(&keluargas).Error
