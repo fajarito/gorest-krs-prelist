@@ -5,6 +5,7 @@ type Service interface {
 	GetTotalKeluargaCount(KodeDepdagriProvinsi string, KodeDepdagriKabupaten string, KodeDepdagriKecamatan string, KodeDepdagriKelurahan string) (int64, error)
 	GetKeluargaBeresiko(KodeDepdagriProvinsi string, KodeDepdagriKabupaten string, KodeDepdagriKecamatan string, KodeDepdagriKelurahan string, filter2 int, page int, pageSize int) ([]Keluarga, error)
 	GetTotalKeluargaBeresikoCount(KodeDepdagriProvinsi string, KodeDepdagriKabupaten string, KodeDepdagriKecamatan string, KodeDepdagriKelurahan string, filter2 int) (int64, error)
+	SearchByNik(nik string, filter2 int, filter3 string, filter4 string) ([]Keluarga, error)
 }
 
 type service struct {
@@ -32,6 +33,13 @@ func (s *service) GetTotalKeluargaCount(KodeDepdagriProvinsi string, KodeDepdagr
 func (s *service) GetKeluargaBeresiko(KodeDepdagriProvinsi string, KodeDepdagriKabupaten string, KodeDepdagriKecamatan string, KodeDepdagriKelurahan string, filter2 int, page int, pageSize int) ([]Keluarga, error) {
 
 	keluargas, err := s.repository.GetKeluargaBeresiko(KodeDepdagriProvinsi, KodeDepdagriKabupaten, KodeDepdagriKecamatan, KodeDepdagriKelurahan, filter2, page, pageSize)
+
+	return keluargas, err
+}
+
+func (s *service) SearchByNik(nik string, filter2 int, filter3 string, filter4 string) ([]Keluarga, error) {
+
+	keluargas, err := s.repository.SearchByNik(nik, filter2, filter3, filter4)
 
 	return keluargas, err
 }

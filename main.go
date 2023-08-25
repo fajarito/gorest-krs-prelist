@@ -97,6 +97,7 @@ func main() {
 	// v3.GET("/krsbykab", krkHandler.GetKrkByKab)
 	v3.GET("/2022/keluarga", keluargaHandler.GetKeluarga)
 	v3.GET("/2022/keluargaberesiko", keluargaHandler.GetKeluargaBeresiko)
+	v3.GET("/2022/carikeluarga", keluargaHandler.SearchByNik)
 	// v3.GET("/krsbykab", pagination.Default(), krkHandler.GetKrkByKab, func(c *gin.Context) {
 	// 	page := c.GetInt("page")
 
